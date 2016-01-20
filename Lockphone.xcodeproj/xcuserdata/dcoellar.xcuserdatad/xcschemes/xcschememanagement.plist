@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Lockphone.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>lockphone-qa.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5706AD041C2B417C0014BBBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57A189C91C2B3EF90037E9B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57A189E21C2B3F8C0037E9B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57A5C47B1C2B4661008AB199</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

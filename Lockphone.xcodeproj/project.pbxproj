@@ -1,0 +1,661 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		570103D51C3181C30017EA0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570103D41C3181C30017EA0D /* Constants.swift */; };
+		570103D61C3182AB0017EA0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570103D41C3181C30017EA0D /* Constants.swift */; };
+		570A88CF1C4E8557001BAE91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A88CE1C4E8557001BAE91 /* MainViewController.swift */; };
+		570A88D01C4E8557001BAE91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A88CE1C4E8557001BAE91 /* MainViewController.swift */; };
+		570A88D21C4E8562001BAE91 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A88D11C4E8562001BAE91 /* MainViewModel.swift */; };
+		570A88D31C4E8562001BAE91 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A88D11C4E8562001BAE91 /* MainViewModel.swift */; };
+		57155EA71C4DCC72009AC178 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57155EA61C4DCC72009AC178 /* PaymentViewController.swift */; };
+		57155EA81C4DCC72009AC178 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57155EA61C4DCC72009AC178 /* PaymentViewController.swift */; };
+		57155EAB1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */; };
+		57155EAC1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */; };
+		571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
+		571D139D1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
+		5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */; };
+		57A189CE1C2B3EF90037E9B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */; };
+		57A189D51C2B3EF90037E9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D41C2B3EF90037E9B5 /* Assets.xcassets */; };
+		57A189F71C2B3F9E0037E9B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D91C2B3EF90037E9B5 /* Info.plist */; };
+		57A5C48E1C2B4668008AB199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */; };
+		57A5C48F1C2B466A008AB199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D41C2B3EF90037E9B5 /* Assets.xcassets */; };
+		57A5C4901C2B466D008AB199 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D91C2B3EF90037E9B5 /* Info.plist */; };
+		57A5C4931C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */; };
+		57A5C4941C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */; };
+		57A5C4961C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4951C2B479F008AB199 /* PhoneInfoViewModel.swift */; };
+		57A5C4971C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4951C2B479F008AB199 /* PhoneInfoViewModel.swift */; };
+		57F0E3A21C47007B00FE789C /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E39F1C46FD5A00FE789C /* Reach.swift */; };
+		57F0E3A31C47007C00FE789C /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E39F1C46FD5A00FE789C /* Reach.swift */; };
+		57F0E3A61C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3A51C47C4B600FE789C /* CustomerInfoViewController.swift */; };
+		57F0E3A71C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3A51C47C4B600FE789C /* CustomerInfoViewController.swift */; };
+		57F0E3A91C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3A81C47C4CA00FE789C /* CustomerInfoViewModel.swift */; };
+		57F0E3AA1C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3A81C47C4CA00FE789C /* CustomerInfoViewModel.swift */; };
+		57F0E3AC1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3AB1C47C4D800FE789C /* CustomerInfoModel.swift */; };
+		57F0E3AD1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0E3AB1C47C4D800FE789C /* CustomerInfoModel.swift */; };
+		57FAEB6F1C34039600799073 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB6E1C34039600799073 /* DataService.swift */; };
+		57FAEB701C34039600799073 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB6E1C34039600799073 /* DataService.swift */; };
+		57FAEB731C340E0100799073 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB721C340E0100799073 /* ParseHelper.swift */; };
+		57FAEB741C340E0100799073 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB721C340E0100799073 /* ParseHelper.swift */; };
+		57FAEB761C340E0D00799073 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB751C340E0D00799073 /* ParserHelper.swift */; };
+		57FAEB771C340E0D00799073 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FAEB751C340E0D00799073 /* ParserHelper.swift */; };
+		57FE44531C453EF40001AB8A /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE44521C453EF40001AB8A /* Blurable.swift */; };
+		62EF81DB7E56BAC16761D86B /* Pods_LockphoneQA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D66CB35BCE26139409DADA /* Pods_LockphoneQA.framework */; };
+		7D255394836CACFBDBA46B0F /* Pods_Lockphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CF627139B1197DDC482D8C /* Pods_Lockphone.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32D66CB35BCE26139409DADA /* Pods_LockphoneQA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockphoneQA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47CF627139B1197DDC482D8C /* Pods_Lockphone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lockphone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		570103D41C3181C30017EA0D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		570A88CE1C4E8557001BAE91 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		570A88D11C4E8562001BAE91 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		57155EA61C4DCC72009AC178 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		57155EAD1C4E62F9009AC178 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		571D139B1C3B1FA100D54586 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneInfoModel.swift; sourceTree = "<group>"; };
+		57A189CA1C2B3EF90037E9B5 /* Lockphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lockphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		57A189D41C2B3EF90037E9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57A189D91C2B3EF90037E9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A5C47C1C2B4661008AB199 /* LockphoneQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockphoneQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A5C48A1C2B4661008AB199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneInfoViewController.swift; sourceTree = "<group>"; };
+		57A5C4951C2B479F008AB199 /* PhoneInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneInfoViewModel.swift; sourceTree = "<group>"; };
+		57F0E39F1C46FD5A00FE789C /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		57F0E3A51C47C4B600FE789C /* CustomerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerInfoViewController.swift; sourceTree = "<group>"; };
+		57F0E3A81C47C4CA00FE789C /* CustomerInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerInfoViewModel.swift; sourceTree = "<group>"; };
+		57F0E3AB1C47C4D800FE789C /* CustomerInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerInfoModel.swift; sourceTree = "<group>"; };
+		57FAEB6E1C34039600799073 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		57FAEB721C340E0100799073 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		57FAEB751C340E0D00799073 /* ParserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
+		57FE44521C453EF40001AB8A /* Blurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
+		8D9D9582E2AC49251D6B937F /* Pods-Lockphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lockphone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lockphone/Pods-Lockphone.debug.xcconfig"; sourceTree = "<group>"; };
+		942F08E1277C8EED79DD948A /* Pods-LockphoneQA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockphoneQA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockphoneQA/Pods-LockphoneQA.debug.xcconfig"; sourceTree = "<group>"; };
+		9BE13ED19B6D3639200B6D71 /* Pods-LockphoneQA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockphoneQA.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockphoneQA/Pods-LockphoneQA.release.xcconfig"; sourceTree = "<group>"; };
+		C8546626523F5C9F3B58B52A /* Pods-Lockphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lockphone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lockphone/Pods-Lockphone.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57A189C71C2B3EF90037E9B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D255394836CACFBDBA46B0F /* Pods_Lockphone.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A5C4791C2B4661008AB199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62EF81DB7E56BAC16761D86B /* Pods_LockphoneQA.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		570A88CD1C4E8542001BAE91 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				570A88CE1C4E8557001BAE91 /* MainViewController.swift */,
+				570A88D11C4E8562001BAE91 /* MainViewModel.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		57155EA91C4DCC7C009AC178 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				57155EA61C4DCC72009AC178 /* PaymentViewController.swift */,
+				57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */,
+			);
+			name = Payment;
+			sourceTree = "<group>";
+		};
+		5768D2C61C334E3500DEA3EB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				57FAEB711C340DE900799073 /* Data */,
+				571D139B1C3B1FA100D54586 /* DeviceModel.swift */,
+				57F0E39F1C46FD5A00FE789C /* Reach.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		57A189C11C2B3EF90037E9B5 = {
+			isa = PBXGroup;
+			children = (
+				57155EAD1C4E62F9009AC178 /* BridgingHeader.h */,
+				57A189CC1C2B3EF90037E9B5 /* Lockphone */,
+				57A5C47D1C2B4661008AB199 /* LockphoneQA */,
+				57A189CB1C2B3EF90037E9B5 /* Products */,
+				5DFB0656117E1B646BE30C7C /* Pods */,
+				B40F65DF0D3685E6F2ED4257 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		57A189CB1C2B3EF90037E9B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57A189CA1C2B3EF90037E9B5 /* Lockphone.app */,
+				57A5C47C1C2B4661008AB199 /* LockphoneQA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57A189CC1C2B3EF90037E9B5 /* Lockphone */ = {
+			isa = PBXGroup;
+			children = (
+				570A88CD1C4E8542001BAE91 /* Main */,
+				57155EA91C4DCC7C009AC178 /* Payment */,
+				57F0E3A41C47C49200FE789C /* CustomerInfo */,
+				57FE44511C453EDE0001AB8A /* Views */,
+				57FAEB6D1C34036E00799073 /* Resources */,
+				5768D2C61C334E3500DEA3EB /* Utils */,
+				57A5C4911C2B476F008AB199 /* PhoneInfo */,
+				57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */,
+			);
+			path = Lockphone;
+			sourceTree = "<group>";
+		};
+		57A5C47D1C2B4661008AB199 /* LockphoneQA */ = {
+			isa = PBXGroup;
+			children = (
+				57A5C48A1C2B4661008AB199 /* Info.plist */,
+			);
+			path = LockphoneQA;
+			sourceTree = "<group>";
+		};
+		57A5C4911C2B476F008AB199 /* PhoneInfo */ = {
+			isa = PBXGroup;
+			children = (
+				57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */,
+				57A5C4951C2B479F008AB199 /* PhoneInfoViewModel.swift */,
+				5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */,
+			);
+			name = PhoneInfo;
+			sourceTree = "<group>";
+		};
+		57F0E3A41C47C49200FE789C /* CustomerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				57F0E3A51C47C4B600FE789C /* CustomerInfoViewController.swift */,
+				57F0E3A81C47C4CA00FE789C /* CustomerInfoViewModel.swift */,
+				57F0E3AB1C47C4D800FE789C /* CustomerInfoModel.swift */,
+			);
+			name = CustomerInfo;
+			sourceTree = "<group>";
+		};
+		57FAEB6D1C34036E00799073 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57A189D41C2B3EF90037E9B5 /* Assets.xcassets */,
+				57A189D91C2B3EF90037E9B5 /* Info.plist */,
+				570103D41C3181C30017EA0D /* Constants.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		57FAEB711C340DE900799073 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				57FAEB6E1C34039600799073 /* DataService.swift */,
+				57FAEB721C340E0100799073 /* ParseHelper.swift */,
+				57FAEB751C340E0D00799073 /* ParserHelper.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		57FE44511C453EDE0001AB8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57FE44521C453EF40001AB8A /* Blurable.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5DFB0656117E1B646BE30C7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D9D9582E2AC49251D6B937F /* Pods-Lockphone.debug.xcconfig */,
+				C8546626523F5C9F3B58B52A /* Pods-Lockphone.release.xcconfig */,
+				942F08E1277C8EED79DD948A /* Pods-LockphoneQA.debug.xcconfig */,
+				9BE13ED19B6D3639200B6D71 /* Pods-LockphoneQA.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B40F65DF0D3685E6F2ED4257 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47CF627139B1197DDC482D8C /* Pods_Lockphone.framework */,
+				32D66CB35BCE26139409DADA /* Pods_LockphoneQA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57A189C91C2B3EF90037E9B5 /* Lockphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A189DC1C2B3EF90037E9B5 /* Build configuration list for PBXNativeTarget "Lockphone" */;
+			buildPhases = (
+				13ADFFB56C4AAA2CB222D5BB /* Check Pods Manifest.lock */,
+				57A189C61C2B3EF90037E9B5 /* Sources */,
+				57A189C71C2B3EF90037E9B5 /* Frameworks */,
+				57A189C81C2B3EF90037E9B5 /* Resources */,
+				76385E23502EB4F31389A862 /* Embed Pods Frameworks */,
+				849DBE7D857FCBE038C1CEA4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lockphone;
+			productName = Lockphone;
+			productReference = 57A189CA1C2B3EF90037E9B5 /* Lockphone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57A5C47B1C2B4661008AB199 /* LockphoneQA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A5C48B1C2B4661008AB199 /* Build configuration list for PBXNativeTarget "LockphoneQA" */;
+			buildPhases = (
+				3C96090CE8DD8B955CE930B3 /* Check Pods Manifest.lock */,
+				57A5C4781C2B4661008AB199 /* Sources */,
+				57A5C4791C2B4661008AB199 /* Frameworks */,
+				57A5C47A1C2B4661008AB199 /* Resources */,
+				1A4E6867B920701EAD0AF940 /* Embed Pods Frameworks */,
+				96467CBEFAAC7A25403F0938 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LockphoneQA;
+			productName = LockphoneQA;
+			productReference = 57A5C47C1C2B4661008AB199 /* LockphoneQA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57A189C21C2B3EF90037E9B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = lockphone;
+				TargetAttributes = {
+					57A189C91C2B3EF90037E9B5 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					57A5C47B1C2B4661008AB199 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 57A189C51C2B3EF90037E9B5 /* Build configuration list for PBXProject "Lockphone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57A189C11C2B3EF90037E9B5;
+			productRefGroup = 57A189CB1C2B3EF90037E9B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57A189C91C2B3EF90037E9B5 /* Lockphone */,
+				57A5C47B1C2B4661008AB199 /* LockphoneQA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57A189C81C2B3EF90037E9B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A189F71C2B3F9E0037E9B5 /* Info.plist in Resources */,
+				57A189D51C2B3EF90037E9B5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A5C47A1C2B4661008AB199 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A5C48F1C2B466A008AB199 /* Assets.xcassets in Resources */,
+				57A5C4901C2B466D008AB199 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13ADFFB56C4AAA2CB222D5BB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1A4E6867B920701EAD0AF940 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockphoneQA/Pods-LockphoneQA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C96090CE8DD8B955CE930B3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76385E23502EB4F31389A862 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lockphone/Pods-Lockphone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		849DBE7D857FCBE038C1CEA4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lockphone/Pods-Lockphone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96467CBEFAAC7A25403F0938 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockphoneQA/Pods-LockphoneQA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57A189C61C2B3EF90037E9B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A189CE1C2B3EF90037E9B5 /* AppDelegate.swift in Sources */,
+				57A5C4931C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */,
+				57FAEB761C340E0D00799073 /* ParserHelper.swift in Sources */,
+				57FAEB731C340E0100799073 /* ParseHelper.swift in Sources */,
+				5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */,
+				571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */,
+				57FE44531C453EF40001AB8A /* Blurable.swift in Sources */,
+				570A88CF1C4E8557001BAE91 /* MainViewController.swift in Sources */,
+				57155EA71C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
+				57FAEB6F1C34039600799073 /* DataService.swift in Sources */,
+				57F0E3A61C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
+				57F0E3AC1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */,
+				57155EAB1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */,
+				57A5C4961C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */,
+				57F0E3A21C47007B00FE789C /* Reach.swift in Sources */,
+				57F0E3A91C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */,
+				570103D51C3181C30017EA0D /* Constants.swift in Sources */,
+				570A88D21C4E8562001BAE91 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A5C4781C2B4661008AB199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A5C48E1C2B4668008AB199 /* AppDelegate.swift in Sources */,
+				57155EA81C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
+				57F0E3A31C47007C00FE789C /* Reach.swift in Sources */,
+				57A5C4941C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */,
+				57A5C4971C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */,
+				57155EAC1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */,
+				57F0E3AA1C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */,
+				57F0E3AD1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */,
+				57F0E3A71C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
+				570A88D01C4E8557001BAE91 /* MainViewController.swift in Sources */,
+				570103D61C3182AB0017EA0D /* Constants.swift in Sources */,
+				57FAEB771C340E0D00799073 /* ParserHelper.swift in Sources */,
+				571D139D1C3B1FA100D54586 /* DeviceModel.swift in Sources */,
+				57FAEB701C34039600799073 /* DataService.swift in Sources */,
+				57FAEB741C340E0100799073 /* ParseHelper.swift in Sources */,
+				570A88D31C4E8562001BAE91 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		57A189DA1C2B3EF90037E9B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		57A189DB1C2B3EF90037E9B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57A189DD1C2B3EF90037E9B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D9D9582E2AC49251D6B937F /* Pods-Lockphone.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lockphone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lockphone.Lockphone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+			};
+			name = Debug;
+		};
+		57A189DE1C2B3EF90037E9B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8546626523F5C9F3B58B52A /* Pods-Lockphone.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lockphone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lockphone.Lockphone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+			};
+			name = Release;
+		};
+		57A5C48C1C2B4661008AB199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 942F08E1277C8EED79DD948A /* Pods-LockphoneQA.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LockphoneQA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lockphone.LockphoneQA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+			};
+			name = Debug;
+		};
+		57A5C48D1C2B4661008AB199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE13ED19B6D3639200B6D71 /* Pods-LockphoneQA.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LockphoneQA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lockphone.LockphoneQA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57A189C51C2B3EF90037E9B5 /* Build configuration list for PBXProject "Lockphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A189DA1C2B3EF90037E9B5 /* Debug */,
+				57A189DB1C2B3EF90037E9B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A189DC1C2B3EF90037E9B5 /* Build configuration list for PBXNativeTarget "Lockphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A189DD1C2B3EF90037E9B5 /* Debug */,
+				57A189DE1C2B3EF90037E9B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A5C48B1C2B4661008AB199 /* Build configuration list for PBXNativeTarget "LockphoneQA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A5C48C1C2B4661008AB199 /* Debug */,
+				57A5C48D1C2B4661008AB199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57A189C21C2B3EF90037E9B5 /* Project object */;
+}
