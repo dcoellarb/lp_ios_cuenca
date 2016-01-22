@@ -152,7 +152,7 @@ class PhoneInfoViewController : UIViewController{
             self.btnNext.setTitle("CONTINUAR", forState: .Normal)
             self.btnNext.setTitleColor(Colors.white, forState: .Normal)
             self.btnNext.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnNext.addTarget(self, action: "action_continuar", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnNext.addTarget(self, action: "continuar:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnNext.userInteractionEnabled = true
             self.btnNext.enabled = false
         }
@@ -197,7 +197,7 @@ class PhoneInfoViewController : UIViewController{
             self.btnObtenerImei.setTitleColor(Colors.white, forState: .Normal)
             self.btnObtenerImei.setTitle("Obtener IMEI", forState: .Normal)
             self.btnObtenerImei.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnObtenerImei.addTarget(self, action: "obtenerIMEI", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnObtenerImei.addTarget(self, action: "obtenerIMEI:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnObtenerImei.userInteractionEnabled = true
             self.btnObtenerImei.layer.cornerRadius = 5;
             self.btnObtenerImei.layer.masksToBounds = true;
@@ -208,22 +208,25 @@ class PhoneInfoViewController : UIViewController{
             self.btnReintentar.setTitleColor(Colors.white, forState: .Normal)
             self.btnReintentar.setTitle("Reintentar", forState: .Normal)
             self.btnReintentar.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnReintentar.addTarget(self, action: "initData", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnReintentar.addTarget(self, action: "reintentar:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnReintentar.userInteractionEnabled = true
             self.btnReintentar.layer.cornerRadius = 5;
             self.btnReintentar.layer.masksToBounds = true;
         }
     }
     
+    //Initializers
     init (viewModel: PhoneInfoViewModel){
+        debugPrint("local init")
+        
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //View Controller life cicle
     override func viewDidLoad() {
         self.title = "Lockphone"
         
@@ -235,80 +238,41 @@ class PhoneInfoViewController : UIViewController{
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: "applicationDidBecomeActive", object: nil)
         
-        initData()
+        self.initData()
     }
-    
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        updatePhoneInfoConstraints()
-        updateLoadingConstraints()
-        updateErrorConstraints()
+        self.updatePhoneInfoConstraints()
+        self.updateLoadingConstraints()
+        self.updateErrorConstraints()
     }
-    
     func applicationDidBecomeActive(){
-        initData()
-    }
-    
-    func initData(){
-        self.hideError()
-        self.showLoading()
-        getPhoneInfo()
-    }
-    
-    func getPhoneInfo(){
-        let status = Reach().connectionStatus()
-        if status.description == ReachabilityStatus.Online(ReachabilityType.WWAN).description
-            || status.description == ReachabilityStatus.Online(ReachabilityType.WiFi).description{
-            self.viewModel.setPhoneInfo().subscribeNext { info in
-                debugPrint("returning from setPhoneInfo:")
+        debugPrint("local application did become active")
 
-                self.hideLoading()
-                if let brand = info.brand{
-                    self.txtMarca.text = brand
-                }
-                if let model = info.model{
-                    self.txtModelo.text = model
-                }
-                
-                if let imei = self.viewModel.imei {
-                    self.txtImei.text = imei.stringByReplacingOccurrencesOfString("%20", withString: " ")
-                    self.txtValorAsegurado.text = self.viewModel.valorAsegurado
-                    self.txtDeducible.text = self.viewModel.deducible
-                    self.txtValorRecibir.text = self.viewModel.valorRecibir
-                    self.txtPrecio.text = self.viewModel.costoMensual
-                    self.btnNext.enabled = true
-                    self.btnNext.backgroundColor = Colors.red
-                }else{
-                    if let _ = self.viewModel.deviceId{
-                        self.lblErrorMessage.text = "Para asegurar tu telefono tenemos que identificar tu numero IMEI; por favor presiona Obtener IMEI para continuar."
-                        self.btnObtenerImei.hidden = false
-                        self.btnReintentar.hidden = true
-                        self.showError()
-                    }else{
-                        self.lblErrorMessage.text = "Lo sentimos, tuvimos problemas al cargar la informacion, por favor intenta de nuevo."
-                        self.btnObtenerImei.hidden = true
-                        self.btnReintentar.hidden = false
-                        self.showError()
-                    }
-                }
-            }
-        }else{
-            debugPrint("no internet connection:" + status.description)
-            self.lblErrorMessage.text = "Lo sentimos, parece no haber coneccion a internet, por favor revisa tu coneccion e intenta de nuevo."
-            self.btnObtenerImei.hidden = true
-            self.btnReintentar.hidden = false
-            self.showError()
-        }
+        self.initData()
     }
     
-    func obtenerIMEI() {
+    //UIButtons targets
+    func obtenerIMEI(sender: AnyObject) {
         if let id = viewModel.deviceId{
             if let url  = NSURL(string:"https://lockphone-qa-najhp5-2388.herokuapp.com/#/install_profile?deviceId=" + id){
                 UIApplication.sharedApplication().openURL(url)
             }
         }
     }
-    
+    func reintentar(sender: AnyObject){
+        debugPrint("local reintentar")
+        
+        self.initData()
+    }
+    func continuar(sender: AnyObject){
+        if let nc = self.navigationController {
+            let controller = CustomerInfoViewController(viewModel: CustomerInfoViewModel())
+            nc.pushViewController(controller, animated: true)
+        }
+    }
+
+    //Create Controls
     private func createPhoneInfoControls(){
         self.mainContainer = UIView()
         self.mainContainer.frame = self.view.bounds
@@ -375,6 +339,7 @@ class PhoneInfoViewController : UIViewController{
         self.errorFrame.addSubview(self.btnReintentar)
     }
     
+    //Update Constraints
     private func updatePhoneInfoConstraints() {
         self.phoneInfoContainer.snp_updateConstraints{
             $0.top.equalTo(self.mainContainer.snp_top).offset(20)
@@ -529,6 +494,56 @@ class PhoneInfoViewController : UIViewController{
         }
     }
     
+    //Helper methods
+    private func initData(){
+        self.hideError()
+        self.showLoading()
+        getPhoneInfo()
+    }
+    private func getPhoneInfo(){
+        if Reachability.isConnectedToNetwork() {
+            self.viewModel.setPhoneInfo().subscribeNext { info in
+                debugPrint("returning from setPhoneInfo:")
+                
+                self.hideLoading()
+                if let brand = info.brand{
+                    self.txtMarca.text = brand
+                }
+                if let model = info.model{
+                    self.txtModelo.text = model
+                }
+                
+                if let imei = self.viewModel.imei {
+                    self.txtImei.text = imei.stringByReplacingOccurrencesOfString("%20", withString: " ")
+                    self.txtValorAsegurado.text = self.viewModel.valorAsegurado
+                    self.txtDeducible.text = self.viewModel.deducible
+                    self.txtValorRecibir.text = self.viewModel.valorRecibir
+                    self.txtPrecio.text = self.viewModel.costoMensual
+                    self.btnNext.enabled = true
+                    self.btnNext.backgroundColor = Colors.red
+                }else{
+                    if let _ = self.viewModel.deviceId{
+                        self.lblErrorMessage.text = "Para asegurar tu telefono tenemos que identificar tu numero IMEI; por favor presiona Obtener IMEI para continuar."
+                        self.btnObtenerImei.hidden = false
+                        self.btnReintentar.hidden = true
+                        self.showError()
+                    }else{
+                        self.lblErrorMessage.text = "Lo sentimos, tuvimos problemas al cargar la informacion, por favor intenta de nuevo."
+                        self.btnObtenerImei.hidden = true
+                        self.btnReintentar.hidden = false
+                        self.showError()
+                    }
+                }
+            }
+        }else{
+            debugPrint("no internet connection:")//+ status.description)
+            self.lblErrorMessage.text = "Lo sentimos, parece no haber coneccion a internet, por favor revisa tu coneccion e intenta de nuevo."
+            self.btnObtenerImei.hidden = true
+            self.btnReintentar.hidden = false
+            self.showError()
+        }
+    }
+    
     private func showLoading(){
         self.mainContainer.blur(blurRadius: 4)
         self.loadingFrame.hidden = false
@@ -549,12 +564,5 @@ class PhoneInfoViewController : UIViewController{
         self.mainContainer.unBlur()
         self.errorFrame.hidden = true
         self.view.sendSubviewToBack(self.errorFrame)
-    }
-    
-    func action_continuar(){
-        if let nc = self.navigationController {
-            let controller = CustomerInfoViewController(viewModel: CustomerInfoViewModel())
-            nc.pushViewController(controller, animated: true)
-        }
     }
 }

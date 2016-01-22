@@ -14,9 +14,7 @@ enum PFObjects: String {
     case Brands
     case Devices
 }
-
 class ParseHelper {
-    
     //Brands
     func getBrand(brand: String, model: String) -> Observable<PFObject?>{
         return create { observer in
@@ -110,14 +108,18 @@ class ParseHelper {
     }
     
     //User
-    func login(username: String, password: String) -> Observable<PFUser?>{
+    func login(username: String, password: String) -> Observable<PFUser?> {
         return create { observer in
-            PFUser.logInWithUsernameInBackground(username, password: password, block: { (user:PFUser?, error: NSError?) -> Void in
-                if user != nil {
-                    observer.on(.Next(user))
+            PFUser.logInWithUsernameInBackground(username, password: password, block: { (user: PFUser?, error: NSError?) -> Void in
+                if let u = user {
+                    observer.on(.Next(u))
                     observer.on(.Completed)
                 } else {
-                    observer.on(.Next(nil))
+                    var returnErrror = NSError(domain: "ParseUndefinedError", code: 0, userInfo: ["code":0,"error":"Undefined Parse Error"])
+                    if let e = error {
+                        returnErrror = NSError(domain: e.domain, code: e.code, userInfo: e.userInfo)
+                    }
+                    observer.on(.Error(returnErrror))
                     observer.on(.Completed)
                 }
             })
@@ -137,12 +139,15 @@ class ParseHelper {
         
             user.signUpInBackgroundWithBlock {
                 (succeeded: Bool, error: NSError?) -> Void in
-                if let error = error {
-                    debugPrint(error.userInfo["error"] as? NSString)
-                    observer.on(.Next(nil))
+                if succeeded {
+                    observer.on(.Next(user))
                     observer.on(.Completed)
                 } else {
-                    observer.on(.Next(user))
+                    var returnErrror = NSError(domain: "ParseError", code: 0, userInfo: ["code":0,"error":"Undefined Parse Error"])
+                    if let e = error {
+                        returnErrror = NSError(domain: e.domain, code: e.code, userInfo: e.userInfo)
+                    }
+                    observer.on(.Error(returnErrror))
                     observer.on(.Completed)
                 }
             }

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.1.5)
   - Bolts/Tasks (1.5.0)
   - CardIO (5.2.2)
   - GoogleAnalytics (3.14.0)
@@ -15,16 +16,29 @@ PODS:
   - Stripe (6.0.1):
     - Stripe/Core (= 6.0.1)
   - Stripe/Core (6.0.1)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.0)
   - GoogleAnalytics
   - Parse
   - PayPal-iOS-SDK
   - RxSwift (~> 2.0.0-beta)
   - SnapKit (~> 0.15.0)
   - Stripe
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 929539eb6a3304eaa9153ca44041a78b85bf2ee5
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   CardIO: 2460db0f4936f3441b08d51e3904b436d77ec8fc
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
@@ -33,5 +47,6 @@ SPEC CHECKSUMS:
   RxSwift: 191c6b06da783a8671433cf35a54d2ad2fd2d9de
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   Stripe: 04f215191702c268b89fe0cdf28dc24a9688a71b
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

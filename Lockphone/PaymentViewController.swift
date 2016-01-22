@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import RxSwift
 
 class PaymentViewController: UIViewController {
     
@@ -39,7 +40,7 @@ class PaymentViewController: UIViewController {
         didSet {
             self.btnBack.backgroundColor = Colors.white
             self.btnBack.setImage(UIImage(named: "back"), forState: .Normal)
-            self.btnBack.addTarget(self, action: "action_back", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnBack.addTarget(self, action: "action_back:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnBack.userInteractionEnabled = true
             self.btnBack.enabled = true
         }
@@ -155,7 +156,6 @@ class PaymentViewController: UIViewController {
             self.btnStripeClose.hidden = true
         }
     }
-    
     //Loading Frame
     var loadingFrame : UIView! {
         didSet {
@@ -177,13 +177,39 @@ class PaymentViewController: UIViewController {
             self.lblloadingMessage.textAlignment = .Center
         }
     }
+    //Error Frame
+    var errorFrame : UIView! {
+        didSet {
+            self.errorFrame.backgroundColor = Colors.darkgray
+        }
+    }
+    var lblErrorMessage : UILabel! {
+        didSet {
+            self.lblErrorMessage.text = "ERROR"
+            self.lblErrorMessage.textColor = Colors.white
+            self.lblErrorMessage.textAlignment = .Center
+            self.lblErrorMessage.font = Font.lightFontWithSize(16)
+            self.lblErrorMessage.lineBreakMode = .ByWordWrapping
+            self.lblErrorMessage.numberOfLines = 0
+        }
+    }
+    var btnReintentar : UIButton! {
+        didSet {
+            self.btnReintentar.setTitleColor(Colors.white, forState: .Normal)
+            self.btnReintentar.setTitle("Cerrar", forState: .Normal)
+            self.btnReintentar.titleLabel?.font = Font.regularFontWithSize(18)
+            self.btnReintentar.addTarget(self, action: "reintentar:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnReintentar.userInteractionEnabled = true
+            self.btnReintentar.layer.cornerRadius = 5;
+            self.btnReintentar.layer.masksToBounds = true;
+        }
+    }
     
     //Initializers
     init(viewModel: PaymentViewModel){
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -194,8 +220,10 @@ class PaymentViewController: UIViewController {
         
         self.createPaymentInfoControls()
         self.createLoadingControls()
+        self.createErrorControls()
         self.updateViewConstraints()
         
+        self.hideError()
         self.hideLoading()
     }
     override func viewWillAppear(animated: Bool) {
@@ -206,8 +234,10 @@ class PaymentViewController: UIViewController {
         super.updateViewConstraints()
         updatePaymentInfoConstraints()
         updateLoadingConstraints()
+        updateErrorConstraints()
     }
     
+    //Create Controls
     private func createPaymentInfoControls(){
         self.mainContainer = UIView()
         self.mainContainer.frame = self.view.bounds
@@ -225,15 +255,6 @@ class PaymentViewController: UIViewController {
         self.lblStepDescription = UILabel()
         self.topBar.addSubview(lblStepDescription)
         
-        self.payPalContainer = UIView()
-        self.paymentInfoContainer.addSubview(payPalContainer)
-        self.payPalLogo = UIImageView()
-        self.payPalContainer.addSubview(payPalLogo)
-        self.lblPayPalDescription = UILabel()
-        self.payPalContainer.addSubview(lblPayPalDescription)
-       self.btnPayPal = UIButton()
-        self.payPalContainer.addSubview(btnPayPal)
-
         self.stripeContainer = UIView()
         self.paymentInfoContainer.addSubview(stripeContainer)
         self.stripeLogo = UIImageView()
@@ -246,6 +267,16 @@ class PaymentViewController: UIViewController {
         self.stripeContainer.addSubview(stripePaymentTextField)
         self.btnStripeClose = UIButton()
         self.stripeContainer.addSubview(btnStripeClose)
+        
+        self.payPalContainer = UIView()
+        self.paymentInfoContainer.addSubview(payPalContainer)
+        self.payPalLogo = UIImageView()
+        self.payPalContainer.addSubview(payPalLogo)
+        self.lblPayPalDescription = UILabel()
+        self.payPalContainer.addSubview(lblPayPalDescription)
+        self.btnPayPal = UIButton()
+        self.payPalContainer.addSubview(btnPayPal)
+
     }
     private func createLoadingControls(){
         self.loadingFrame = UIView()
@@ -255,7 +286,16 @@ class PaymentViewController: UIViewController {
         self.lblloadingMessage = UILabel()
         self.loadingFrame.addSubview(lblloadingMessage)
     }
+    private func createErrorControls(){
+        self.errorFrame = UIView()
+        self.view.addSubview(errorFrame)
+        self.lblErrorMessage = UILabel()
+        self.errorFrame.addSubview(lblErrorMessage)
+        self.btnReintentar = UIButton()
+        self.errorFrame.addSubview(self.btnReintentar)
+    }
     
+    //Update Constraints
     private func updatePaymentInfoConstraints() {
         self.paymentInfoContainer.snp_updateConstraints{
             $0.top.equalTo(self.mainContainer.snp_top).offset(20)
@@ -291,12 +331,10 @@ class PaymentViewController: UIViewController {
             $0.right.equalTo(self.topBar.snp_right).offset(-5)
         }
         
-        
-        
         self.stripeContainer.snp_updateConstraints{
             $0.top.equalTo(self.paymentInfoContainer.snp_top).offset(121)
-            $0.width.equalTo(self.view.snp_width).offset(-30)
-            $0.centerX.equalTo(self.view.snp_centerX)
+            $0.width.equalTo(self.paymentInfoContainer.snp_width).offset(-30)
+            $0.centerX.equalTo(self.paymentInfoContainer.snp_centerX)
             $0.height.equalTo(198)
         }
         self.stripeLogo.snp_updateConstraints{
@@ -329,12 +367,10 @@ class PaymentViewController: UIViewController {
             $0.right.equalTo(self.stripeContainer.snp_right).offset(-15)
         }
         
-        
-        
         self.payPalContainer.snp_updateConstraints{
             $0.top.equalTo(self.stripeContainer.snp_bottom).offset(30)
-            $0.width.equalTo(self.view.snp_width).offset(-30)
-            $0.centerX.equalTo(self.view.snp_centerX)
+            $0.width.equalTo(self.paymentInfoContainer.snp_width).offset(-30)
+            $0.centerX.equalTo(self.paymentInfoContainer.snp_centerX)
             $0.height.equalTo(198)
         }
         self.payPalLogo.snp_updateConstraints{
@@ -375,12 +411,36 @@ class PaymentViewController: UIViewController {
             $0.width.equalTo(self.loadingFrame.snp_width)
         }
     }
+    private func updateErrorConstraints() {
+        self.errorFrame.snp_updateConstraints{
+            $0.centerY.equalTo(self.view.snp_centerY)
+            $0.width.equalTo(self.view.snp_width)
+            $0.height.equalTo(150)
+        }
+        self.lblErrorMessage.snp_updateConstraints{
+            $0.top.equalTo(self.errorFrame.snp_top).offset(20)
+            $0.width.equalTo(self.errorFrame.snp_width).offset(-20)
+            $0.leftMargin.equalTo(10)
+        }
+        self.btnReintentar.snp_updateConstraints{
+            $0.bottom.equalTo(self.errorFrame.snp_bottom).offset(-5)
+            $0.centerX.equalTo(self.view.snp_centerX)
+            $0.width.equalTo(200)
+            $0.height.equalTo(66)
+        }
+    }    
     
-    func action_back(){
+    //UIButtons actions
+    func action_back(sender: AnyObject){
         if let nc = self.navigationController{
             nc.popViewControllerAnimated(true)
         }
     }
+    func reintentar(sender: AnyObject){
+        self.hideError()
+    }
+    
+    //Helper Methods
     private func showLoading(){
         self.mainContainer.blur(blurRadius: 4)
         self.loadingFrame.hidden = false
@@ -388,8 +448,18 @@ class PaymentViewController: UIViewController {
     }
     private func hideLoading(){
         self.mainContainer.unBlur()
-        self.loadingFrame.hidden = true
         self.view.sendSubviewToBack(self.loadingFrame)
+        self.loadingFrame.hidden = true
+    }
+    private func showError(){
+        self.mainContainer.blur(blurRadius: 4)
+        self.errorFrame.hidden = false
+        self.view.bringSubviewToFront(self.errorFrame)
+    }
+    private func hideError(){
+        self.mainContainer.unBlur()
+        self.errorFrame.hidden = true
+        self.view.sendSubviewToBack(self.errorFrame)
     }
     
     //PayPal
@@ -446,48 +516,31 @@ extension PaymentViewController: STPPaymentCardTextFieldDelegate {
         if textField.valid {
             debugPrint("card is valid")
             if let card = textField.card {
+                textField.clear()
+                self.view.endEditing(true)
                 self.toogleStripe()
-                self.lblloadingMessage.text = "Creando suscripcion..."
+                self.lblloadingMessage.text = "Creado suscripcion..."
                 self.showLoading()
-                STPAPIClient.sharedClient().createTokenWithCard(card) { (token, error) -> Void in
-                    if let error = error  {
-                        debugPrint(error)
+                self.viewModel.subscripbeForPayments(card).subscribe(
+                    onNext: { sucess in
+                        debugPrint("next on subscribe for payment")
+                    }, onError: { error in
+                        //TODO show error
+                        debugPrint("error on subscribe for payment")
                         self.hideLoading()
+                        self.lblErrorMessage.text = "Lo sentimos, no se pudo generar la suscripcion en este momento por favor intente mas tarde."
+                        self.showError()
+                    }, onCompleted: {
+                        debugPrint("complete on subscribe for payment")
+                        self.hideLoading()
+                    }, onDisposed: {
+                        debugPrint("dispose on subscribe for payment")
                     }
-                    else if let token = token {
-                        self.createBackendChargeWithToken(token) { status in
-                            debugPrint(status)
-                            self.hideLoading()
-                        }
-                    }
-                }
+                )
             }
         } else {
             debugPrint("card not valid")
         }
-    }
-    
-    func createBackendChargeWithToken(token: STPToken, completion: PKPaymentAuthorizationStatus -> ()) {
-        sleep(5)
-        completion(PKPaymentAuthorizationStatus.Success)
-        /*
-        let url = NSURL(string: "https://example.com/token")!
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        let body = "stripeToken=(token.tokenId)"
-        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
-        let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if error != nil {
-                completion(PKPaymentAuthorizationStatus.Failure)
-            }
-            else {
-                completion(PKPaymentAuthorizationStatus.Success)
-            }
-        }
-        task.resume()
-        */
     }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import RxSwift
 
-class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITextFieldDelegate{
+class CustomerInfoViewController : UIViewController{
     
     private var viewModel: CustomerInfoViewModel
     private let txtBorderY : CGFloat = 34
@@ -20,6 +20,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
     private let txtBorderColor = Colors.lightgray
     
     //UI controls
+    //Main container
     var mainContainer : UIView! {
         didSet {
             self.mainContainer.backgroundColor = Colors.white
@@ -30,7 +31,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.customerInfoContainer.backgroundColor = Colors.lightergray
         }
     }
-    
     //Top bar
     var topBar : UIView! {
         didSet{
@@ -45,7 +45,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         didSet {
             self.btnBack.backgroundColor = Colors.white
             self.btnBack.setImage(UIImage(named: "back"), forState: .Normal)
-            self.btnBack.addTarget(self, action: "action_back", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnBack.addTarget(self, action: "action_back:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnBack.userInteractionEnabled = true
             self.btnBack.enabled = true
         }
@@ -75,7 +75,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.lblStepDescription.numberOfLines = 0
         }
     }
-    
     //Login frame
     var lblDescriptionRegister : UILabel! {
         didSet{
@@ -90,10 +89,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
     var loginFrame : UIView! {
         didSet{
             self.loginFrame.backgroundColor = Colors.white
-            //self.loginFrame.layer.cornerRadius = 5
-            //self.loginFrame.layer.masksToBounds = true
-            //self.loginFrame.layer.borderColor = Colors.darkgray.CGColor
-            //self.loginFrame.layer.borderWidth = 1
             
             let topBorder = CALayer()
             topBorder.frame = CGRectMake(0, 0, self.view.frame.size.width, 1)
@@ -143,13 +138,23 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.txtLoginPassword.addTarget(self, action: "editChange:", forControlEvents: UIControlEvents.EditingChanged)
         }
     }
+    var lblLoginError : UILabel! {
+        didSet{
+            self.lblLoginError.font = Font.lightFontWithSize(12)
+            self.lblLoginError.text = ""
+            self.lblLoginError.lineBreakMode = .ByWordWrapping
+            self.lblLoginError.numberOfLines = 0
+            self.lblLoginError.textColor = Colors.red
+            self.lblLoginError.textAlignment = .Center
+        }
+    }
     var btnRegister : UIButton! {
         didSet {
             self.btnRegister.backgroundColor = Colors.lightergray
             self.btnRegister.setTitle("Aun no estoy registrado en Lockphone", forState: .Normal)
-            self.btnRegister.setTitleColor(Colors.red, forState: .Normal)
-            self.btnRegister.titleLabel?.font = Font.regularFontWithSize(14)
-            self.btnRegister.addTarget(self, action: "show_registration", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnRegister.setTitleColor(Colors.darkergray, forState: .Normal)
+            self.btnRegister.titleLabel?.font = Font.boldFontWithSize(16)
+            self.btnRegister.addTarget(self, action: "show_registration:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnRegister.userInteractionEnabled = true
         }
     }
@@ -158,9 +163,10 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.btnLogin.frame = CGRectMake(0, 0, self.view.frame.width, CGFloat(44))
             self.btnLogin.backgroundColor = Colors.redDisabled
             self.btnLogin.setTitle("INGRESAR", forState: .Normal)
+            self.btnLogin.setTitle("", forState: .Disabled)
             self.btnLogin.setTitleColor(Colors.white, forState: .Normal)
             self.btnLogin.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnLogin.addTarget(self, action: "action_signin", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnLogin.addTarget(self, action: "action_signin:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnLogin.userInteractionEnabled = true
             self.btnLogin.enabled = false
         }
@@ -171,7 +177,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.btnLoginSpinner.userInteractionEnabled = true
         }
     }
-    
     //Registration
     var formContainer : UIScrollView! {
         didSet {
@@ -200,7 +205,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.btnCancelRegistro.setTitle("Cerrar", forState: .Normal)
             self.btnCancelRegistro.setTitleColor(Colors.darkgray, forState: .Normal)
             self.btnCancelRegistro.titleLabel?.font = Font.regularFontWithSize(12)
-            self.btnCancelRegistro.addTarget(self, action: "hide_registration", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnCancelRegistro.addTarget(self, action: "hide_registration:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnCancelRegistro.userInteractionEnabled = true
         }
     }
@@ -395,7 +400,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.btnNext.setTitle("CONTINUAR", forState: .Normal)
             self.btnNext.setTitleColor(Colors.white, forState: .Normal)
             self.btnNext.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnNext.addTarget(self, action: "action_signup", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnNext.addTarget(self, action: "action_signup:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnNext.userInteractionEnabled = true
             self.btnNext.enabled = false
         }
@@ -406,7 +411,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.btnNextSpinner.userInteractionEnabled = true
         }
     }
-    
     //Error Frame
     var errorFrame : UIView! {
         didSet {
@@ -426,26 +430,25 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
     var btnReintentar : UIButton! {
         didSet {
             self.btnReintentar.setTitleColor(Colors.white, forState: .Normal)
-            self.btnReintentar.setTitle("Reintentar", forState: .Normal)
+            self.btnReintentar.setTitle("Cerrar", forState: .Normal)
             self.btnReintentar.titleLabel?.font = Font.regularFontWithSize(18)
-            self.btnReintentar.addTarget(self, action: "initData", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnReintentar.addTarget(self, action: "reintentar:", forControlEvents: UIControlEvents.TouchUpInside)
             self.btnReintentar.userInteractionEnabled = true
             self.btnReintentar.layer.cornerRadius = 5;
             self.btnReintentar.layer.masksToBounds = true;
         }
     }
     
-    
-    
+    //Initializers
     init (viewModel: CustomerInfoViewModel){
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //View controller life cicle
     override func viewDidLoad() {
         self.title = "Lockphone"
         
@@ -458,7 +461,14 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         self.hideError()
         self.txtLoginEmail.becomeFirstResponder()
     }
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        updateCustomerInfoConstraints()
+        updateRegisterConstraints()
+        updateErrorConstraints()
+    }
     
+    //UITextfield change event
     func  editChange(sender: UITextField){
         if let text = sender.text{
             if sender.tag == 0 {
@@ -551,6 +561,132 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         
     }
     
+    //UIButtons actions
+    func action_signup(sender: AnyObject){
+        self.btnNext.enabled = false
+        self.btnNext.setTitle("", forState: .Disabled)
+        self.btnNextSpinner.hidden = false
+        self.btnNextSpinner.startAnimating()
+        debugPrint("next tapped")
+        if self.viewModel.validatePassword() && self.viewModel.validateEmail() && self.viewModel.validateForm(){
+            self.viewModel.signUp().subscribe(
+                onNext: { success in
+                    self.btnNextSpinner.stopAnimating()
+                    self.btnNextSpinner.hidden = true
+                    self.btnNext.setTitle("CONTINUAR", forState: .Disabled)
+                    self.btnNext.enabled = true
+                    
+                    if success {
+                        debugPrint("successfull signup")
+                        if let nc = self.navigationController{
+                            self.txtNombre.text = ""
+                            self.txtDireccion.text = ""
+                            self.txtTelefono.text = ""
+                            self.txtRucCI.text = ""
+                            self.txtEmail.text = ""
+                            self.txtPassword.text = ""
+                            self.txtConfirmPassword.text = ""
+                            
+                            let controller = PaymentViewController(viewModel: PaymentViewModel())
+                            nc.pushViewController(controller, animated: true)
+                        }
+                    }else{
+                        self.lblErrorMessage.text = "Lo Sentimos, no se pudo completar el registro, por favor intente mas tarde."
+                        self.showError()
+                    }
+                }, onError: { error in
+                    self.btnNextSpinner.stopAnimating()
+                    self.btnNextSpinner.hidden = true
+                    self.btnNext.setTitle("CONTINUAR", forState: .Disabled)
+                    self.btnNext.enabled = true
+                    self.lblErrorMessage.text = "Lo Sentimos, no se pudo completar el registro, por favor intente mas tarde."
+                    self.showError()
+                }, onCompleted: {
+                }, onDisposed: {
+                }
+            )
+        }
+    }
+    func action_signin(sender: AnyObject){
+        self.btnLogin.enabled = false
+        self.btnLoginSpinner.hidden = false
+        self.btnLoginSpinner.startAnimating()
+        if self.viewModel.validateLoginForm() {
+            self.viewModel.login().subscribe(
+                onNext: { success in
+                    self.btnLogin.enabled = true
+                    self.btnLoginSpinner.stopAnimating()
+                    self.btnLoginSpinner.hidden = true
+                    if success {
+                        if let nc = self.navigationController{
+                            self.txtLoginEmail.text = ""
+                            self.txtLoginPassword.text = ""
+                            
+                            let controller = PaymentViewController(viewModel: PaymentViewModel())
+                            nc.pushViewController(controller, animated: true)
+                        }
+                    } else {
+                        self.lblLoginError.text = "No se pudo ingresar al sistema."
+                    }
+                }, onError: { error in
+                    self.btnLogin.enabled = true
+                    self.btnLoginSpinner.stopAnimating()
+                    self.btnLoginSpinner.hidden = true
+                    self.lblLoginError.text = "No se pudo ingresar al sistema."
+                    if (error as NSError).code == 101 {
+                        self.lblLoginError.text = "Email y/o Clave incorrectos."
+                    }
+                }, onCompleted: {
+                
+                }, onDisposed: {
+                    
+                }
+            )
+        }
+    }
+    func action_back(sender: AnyObject){
+        if let nc = self.navigationController{
+            nc.popViewControllerAnimated(true)
+        }
+    }
+    func show_registration(sender: AnyObject){
+        self.mainContainer.blur(blurRadius: 8)
+        self.formContainer.hidden = false
+        self.view.bringSubviewToFront(self.formContainer)
+        
+        self.formContainer.frame = CGRect(x: 0,y: self.view.bounds.height,width: self.view.bounds.width,height: 900)
+        UIView.animateWithDuration(1.0,
+            delay:0.1,
+            options: [.CurveEaseOut],
+            animations: {
+                self.formContainer.frame = self.view.bounds
+            },
+            completion: { finished in
+                self.txtNombre.becomeFirstResponder()
+        })
+    }
+    func hide_registration(sender: AnyObject){
+        self.formContainer.endEditing(true)
+        self.formContainer.frame = self.view.bounds
+        UIView.animateWithDuration(1.0,
+            delay:0.1,
+            options: [.CurveEaseIn],
+            animations: {
+                self.formContainer.frame = CGRect(x: 0,y: self.view.bounds.height,width: self.view.bounds.width,height: 900)
+            },
+            completion: { finished in
+                self.mainContainer.unBlur()
+                self.formContainer.hidden = true
+                self.view.sendSubviewToBack(self.formContainer)
+                
+                self.txtLoginEmail.becomeFirstResponder()
+        })
+    }
+    func reintentar(sender: AnyObject){
+        self.hideError()
+    }
+    
+    //Create Controls 
     private func createPhoneInfoControls(){
         self.mainContainer = UIView()
         self.mainContainer.frame = self.view.bounds
@@ -578,6 +714,8 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         self.loginFrame.addSubview(txtLoginEmail)
         self.txtLoginPassword = UITextField()
         self.loginFrame.addSubview(txtLoginPassword)
+        self.lblLoginError = UILabel()
+        self.loginFrame.addSubview(lblLoginError)
         self.btnRegister = UIButton()
         self.customerInfoContainer.addSubview(btnRegister)
     }
@@ -635,12 +773,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         self.errorFrame.addSubview(self.btnReintentar)
     }
     
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        updateCustomerInfoConstraints()
-        updateRegisterConstraints()
-        updateErrorConstraints()
-    }
+    //Update Constraints
     private func updateCustomerInfoConstraints() {
         self.customerInfoContainer.snp_updateConstraints{
             $0.top.equalTo(self.mainContainer.snp_top)
@@ -696,6 +829,12 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         self.txtLoginPassword.snp_updateConstraints{
             $0.top.equalTo(self.txtLoginEmail.snp_bottom).offset(self.txtSeparation)
             $0.height.equalTo(self.txtHeight)
+            $0.width.equalTo(self.loginFrame.snp_width).offset(-40)
+            $0.leftMargin.equalTo(20)
+        }
+        self.lblLoginError.snp_updateConstraints{
+            $0.top.equalTo(self.txtLoginPassword.snp_bottom).offset(5)
+            $0.height.equalTo(20)
             $0.width.equalTo(self.loginFrame.snp_width).offset(-40)
             $0.leftMargin.equalTo(20)
         }
@@ -826,7 +965,7 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             $0.height.equalTo(150)
         }
         self.lblErrorMessage.snp_updateConstraints{
-            $0.top.equalTo(self.errorFrame.snp_top).offset(5)
+            $0.top.equalTo(self.errorFrame.snp_top).offset(20)
             $0.width.equalTo(self.errorFrame.snp_width).offset(-20)
             $0.leftMargin.equalTo(10)
         }
@@ -838,91 +977,31 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
         }
     }
     
+    //Helper Methods
     private func showError(){
-        self.mainContainer.blur(blurRadius: 4)
+        self.view.endEditing(true)
+        self.formContainer.blur(blurRadius: 4)
         self.errorFrame.hidden = false
         self.view.bringSubviewToFront(self.errorFrame)
     }
     private func hideError(){
-        self.mainContainer.unBlur()
+        self.formContainer.unBlur()
         self.errorFrame.hidden = true
         self.view.sendSubviewToBack(self.errorFrame)
+        self.txtConfirmPassword.becomeFirstResponder()
     }
-    
-    func action_signup(){
-        self.btnNext.enabled = false
-        self.btnNext.setTitle("", forState: .Disabled)
-        self.btnNextSpinner.hidden = false
-        self.btnNextSpinner.startAnimating()
-        debugPrint("next tapped")
-        if self.viewModel.validatePassword() && self.viewModel.validateEmail() && self.viewModel.validateForm(){
-            self.viewModel.signUp().subscribeNext{ success in
-                self.btnNextSpinner.stopAnimating()
-                self.btnNextSpinner.hidden = true
-                self.btnNext.setTitle("CONTINUAR", forState: .Disabled)
-                self.btnNext.enabled = true
-                
-                if success {
-                    debugPrint("successfull signup")
-                    if let nc = self.navigationController{
-                        self.txtNombre.text = ""
-                        self.txtDireccion.text = ""
-                        self.txtTelefono.text = ""
-                        self.txtRucCI.text = ""
-                        self.txtEmail.text = ""
-                        self.txtPassword.text = ""
-                        self.txtConfirmPassword.text = ""
-                        
-                        let controller = PaymentViewController(viewModel: PaymentViewModel())
-                        nc.pushViewController(controller, animated: true)
-                    }
-                }else{
-                    debugPrint("fail signup")
-                }
-            }
-        }
-    }
-    func action_signin(){
-        self.btnLogin.enabled = false
-        self.btnLogin.setTitle("", forState: .Disabled)
-        self.btnLoginSpinner.hidden = false
-        self.btnLoginSpinner.startAnimating()
-        debugPrint("login tapped")
-        
-        if self.viewModel.validateLoginForm() {
-            self.viewModel.login().subscribeNext{ success in
-                self.btnLoginSpinner.stopAnimating()
-                self.btnLoginSpinner.hidden = true
-                self.btnLogin.setTitle("INGRESAR", forState: .Disabled)
-                self.btnLogin.enabled = true
+}
 
-                if success {
-                    if let nc = self.navigationController{
-                        self.txtLoginEmail.text = ""
-                        self.txtLoginPassword.text = ""
-                        
-                        let controller = PaymentViewController(viewModel: PaymentViewModel())
-                        nc.pushViewController(controller, animated: true)
-                    }
-                }else{
-                    debugPrint("fail login")
-                }
-            }
-        }
-    }
-    
-    func action_back(){
-        if let nc = self.navigationController{
-            nc.popViewControllerAnimated(true)
-        }
-    }
-    
+extension CustomerInfoViewController: UIScrollViewDelegate{
+}
+
+extension CustomerInfoViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField.tag == 0{
             self.txtLoginPassword.becomeFirstResponder()
         } else if textField.tag == 1{
-            action_signin()
+            action_signin(textField)
         } else if textField.tag == 10{
             self.txtDireccion.becomeFirstResponder()
             var point = lblDireccion.frame.origin
@@ -953,40 +1032,6 @@ class CustomerInfoViewController : UIViewController, UIScrollViewDelegate, UITex
             self.txtConfirmPassword.becomeFirstResponder()
         }
         return true
-    }
-    
-    func show_registration(){
-        self.mainContainer.blur(blurRadius: 8)
-        self.formContainer.hidden = false
-        self.view.bringSubviewToFront(self.formContainer)
-        
-        self.formContainer.frame = CGRect(x: 0,y: self.view.bounds.height,width: self.view.bounds.width,height: 900)
-        UIView.animateWithDuration(1.0,
-            delay:0.1,
-            options: [.CurveEaseOut],
-            animations: {
-                self.formContainer.frame = self.view.bounds
-            },
-            completion: { finished in
-                self.txtNombre.becomeFirstResponder()
-        })
-    }
-    func hide_registration(){
-        self.formContainer.endEditing(true)
-        self.formContainer.frame = self.view.bounds
-        UIView.animateWithDuration(1.0,
-            delay:0.1,
-            options: [.CurveEaseIn],
-            animations: {
-                self.formContainer.frame = CGRect(x: 0,y: self.view.bounds.height,width: self.view.bounds.width,height: 900)
-            },
-            completion: { finished in
-                self.mainContainer.unBlur()
-                self.formContainer.hidden = true
-                self.view.sendSubviewToBack(self.formContainer)
-                
-                self.txtLoginEmail.becomeFirstResponder()
-        })
     }
 }
 
