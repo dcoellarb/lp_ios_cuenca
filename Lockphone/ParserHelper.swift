@@ -52,4 +52,34 @@ class ParserHelper {
             return NopDisposable.instance
         }
     }
+    //User
+    func getCustomerInfo(fromUser: PFUser?) -> Observable<CustomerInfo?>{
+        return create { observer in
+            let customerInfo = CustomerInfo()
+            if let user = fromUser {
+                if let id = user.objectId {
+                    customerInfo.id = id
+                }
+                if let nombre = user["nombre"] as? String {
+                    customerInfo.nombre = nombre
+                }
+                if let direccion = user["direccion"] as? String {
+                    customerInfo.direccion = direccion
+                }
+                if let telefono = user["telefono"] as? String {
+                    customerInfo.telefono = telefono
+                }
+                if let ciRuc = user["ci_ruc"] as? String {
+                    customerInfo.rucCI = ciRuc
+                }
+                if let email = user["email"] as? String {
+                    customerInfo.email = email
+                }
+            }
+            
+            observer.on(.Next(customerInfo))
+            observer.on(.Completed)
+            return NopDisposable.instance
+        }
+    }
 }

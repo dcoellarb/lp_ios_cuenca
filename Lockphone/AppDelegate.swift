@@ -37,18 +37,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         
         // Override point for customization after application launch.
-        //UIApplication.sharedApplication().statusBarStyle = .LightContent
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.backgroundColor = UIColor.whiteColor()
+
+        var showWizard = true
+        if let phoneInsured = NSUserDefaults.standardUserDefaults().objectForKey(UserDefatulsKeys.localPhoneInsured) as? Bool{
+            if phoneInsured {
+                showWizard = false
+            }
+        }
         
-        let rootController = PhoneInfoViewController(viewModel: PhoneInfoViewModel())
-        self.navigationController = UINavigationController(rootViewController:rootController)
-        self.navigationController?.navigationBar.barTintColor = Colors.red
-        self.navigationController?.navigationBar.tintColor = Colors.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
-        self.navigationController?.navigationBar.hidden = true
+        if showWizard {
+            let rootController = PhoneInfoViewController(viewModel: PhoneInfoViewModel())
+            self.navigationController = UINavigationController(rootViewController:rootController)
+            self.navigationController?.navigationBar.barTintColor = Colors.red
+            self.navigationController?.navigationBar.tintColor = Colors.white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
+            self.navigationController?.navigationBar.hidden = true
+        } else {
+            let rootController = MainViewController(viewModel: MainViewModel())
+            self.navigationController = UINavigationController(rootViewController:rootController)
+            self.navigationController?.navigationBar.barTintColor = Colors.red
+            self.navigationController?.navigationBar.tintColor = Colors.white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
+            self.navigationController?.navigationBar.hidden = true
+        }
         
         self.window?.rootViewController =  navigationController
+        
+        
+        
         self.window?.makeKeyAndVisible()
         debugPrint("didFinishLaunchingWithOptions")        
         

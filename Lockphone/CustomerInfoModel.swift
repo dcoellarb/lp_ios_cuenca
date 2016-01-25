@@ -10,6 +10,7 @@ import Foundation
 
 class CustomerInfo {
     
+    var id: String = ""
     var nombre: String = ""
     var direccion: String = ""
     var telefono: String = ""

@@ -46,34 +46,28 @@ class DataService {
     }
     
     //User
-    func login(username: String, password: String) -> Observable<String?>{
+    func login(username: String, password: String) -> Observable<CustomerInfo?>{
         return parseHelper.login(username, password: password)
-            .flatMap{(user: PFUser?) -> Observable<String?> in
-                return create { observer in
-                    observer.on(.Next(user?.objectId))
-                    observer.on(.Completed)
-                    return NopDisposable.instance
-                }
+            .flatMap{(user: PFUser?) -> Observable<CustomerInfo?> in
+                return self.parserHelper.getCustomerInfo(user)
         }
     }
-    func signUp(deviceId: String,nombre: String,direccion: String,telefono: String,ciRuc: String,email: String,password: String)  -> Observable<String?> {
+    func signUp(deviceId: String,nombre: String,direccion: String,telefono: String,ciRuc: String,email: String,password: String)  -> Observable<CustomerInfo?> {
         
         //Sign up user
         return parseHelper.signUp(nombre, direccion: direccion, telefono: telefono, ciRuc: ciRuc, email: email, password: password)
-            .flatMap{(user: PFUser?) -> Observable<String?> in
-                return create { observer in
-                    
-                    //Attach device to user
-                    self.parseHelper.updateDeviceUser(deviceId, user: user).subscribeNext({ (device: PFObject?) -> Void in
+            .flatMap{(user: PFUser?) -> Observable<CustomerInfo?> in
+                
+                //Asign user to device
+                return self.parseHelper.updateDeviceUser(deviceId, user: user)
+                    .flatMap{(device: PFObject?) -> Observable<CustomerInfo?> in
+                        
                         if let _ = device{
                             debugPrint("Device could not be attached to user")
                         }
-                        observer.on(.Next(user?.objectId))
-                        observer.on(.Completed)
-                    })
-                    
-                    return NopDisposable.instance
-                }
-        }
+                        return self.parserHelper.getCustomerInfo(user)
+                        
+                    }
+            }
     }
 }

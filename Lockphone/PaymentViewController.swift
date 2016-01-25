@@ -521,18 +521,28 @@ extension PaymentViewController: STPPaymentCardTextFieldDelegate {
                 self.toogleStripe()
                 self.lblloadingMessage.text = "Creado suscripcion..."
                 self.showLoading()
+                var nextCount = 0
                 self.viewModel.subscripbeForPayments(card).subscribe(
                     onNext: { sucess in
                         debugPrint("next on subscribe for payment")
+                        nextCount++
                     }, onError: { error in
                         //TODO show error
                         debugPrint("error on subscribe for payment")
-                        self.hideLoading()
-                        self.lblErrorMessage.text = "Lo sentimos, no se pudo generar la suscripcion en este momento por favor intente mas tarde."
-                        self.showError()
+                        debugPrint(error)
+                        if nextCount < 2{
+                            self.hideLoading()
+                            self.lblErrorMessage.text = "Lo sentimos, no se pudo generar la suscripcion en este momento por favor intente mas tarde."
+                            self.showError()
+                        }else{
+                            //concider success as payment has beeing procesed
+                            self.hideLoading()
+                            UIApplication.sharedApplication().keyWindow?.rootViewController = MainViewController(viewModel: MainViewModel())
+                        }
                     }, onCompleted: {
                         debugPrint("complete on subscribe for payment")
                         self.hideLoading()
+                        UIApplication.sharedApplication().keyWindow?.rootViewController = MainViewController(viewModel: MainViewModel())
                     }, onDisposed: {
                         debugPrint("dispose on subscribe for payment")
                     }

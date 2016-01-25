@@ -116,6 +116,10 @@ class PhoneInfoViewModel{
         return create{observer in
             DataService.sharedInstance.getDevice(id).subscribeNext{ phoneInfo in
                 self.phoneInfo = phoneInfo
+                if let imei = self.phoneInfo.imei {
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setValue(imei, forKey: UserDefatulsKeys.localImei)
+                }
                 observer.on(.Next(phoneInfo))
                 observer.on(.Completed)
 

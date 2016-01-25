@@ -99,9 +99,17 @@ class CustomerInfoViewModel {
     //User
     func login() -> Observable<Bool>{
         return DataService.sharedInstance.login(self.loginUsername,password: self.loginPassword)
-            .flatMap{(userId: String?) -> Observable<Bool> in
+            .flatMap{(customerInfo: CustomerInfo?) -> Observable<Bool> in
                 return create { observer in
-                    if let _ = userId{
+                    if let _ = customerInfo {
+                        
+                        let defaults = NSUserDefaults.standardUserDefaults()
+                        defaults.setValue(customerInfo?.nombre, forKey: UserDefatulsKeys.localNombre)
+                        defaults.setValue(customerInfo?.direccion, forKey: UserDefatulsKeys.localDireccion)
+                        defaults.setValue(customerInfo?.telefono, forKey: UserDefatulsKeys.localTelefono)
+                        defaults.setValue(customerInfo?.rucCI, forKey: UserDefatulsKeys.localRucCI)
+                        defaults.setValue(customerInfo?.email, forKey: UserDefatulsKeys.localEmail)
+                        
                         observer.on(.Next(true))
                         observer.on(.Completed)
                     }else{
@@ -117,9 +125,17 @@ class CustomerInfoViewModel {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let deviceId = defaults.objectForKey(UserDefatulsKeys.localDeviceId) as? String {
             return DataService.sharedInstance.signUp(deviceId,nombre: self.nombre, direccion: self.direccion, telefono: self.telefono, ciRuc: self.rucCI, email: self.email, password: self.password)
-                .flatMap{(userId: String?) -> Observable<Bool> in
+                .flatMap{(customerInfo: CustomerInfo?) -> Observable<Bool> in
                     return create { observer in
-                        if let _ = userId{
+                        if let _ = customerInfo {
+                            
+                            let defaults = NSUserDefaults.standardUserDefaults()
+                            defaults.setValue(customerInfo?.nombre, forKey: UserDefatulsKeys.localNombre)
+                            defaults.setValue(customerInfo?.direccion, forKey: UserDefatulsKeys.localDireccion)
+                            defaults.setValue(customerInfo?.telefono, forKey: UserDefatulsKeys.localTelefono)
+                            defaults.setValue(customerInfo?.rucCI, forKey: UserDefatulsKeys.localRucCI)
+                            defaults.setValue(customerInfo?.email, forKey: UserDefatulsKeys.localEmail)
+                                                        
                             observer.on(.Next(true))
                             observer.on(.Completed)
                         }else{

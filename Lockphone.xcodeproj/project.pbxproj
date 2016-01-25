@@ -20,6 +20,18 @@
 		571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
 		571D139D1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
 		5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */; };
+		5798A4351C565D2C00B2E783 /* PhonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4341C565D2C00B2E783 /* PhonesViewController.swift */; };
+		5798A4361C565D2C00B2E783 /* PhonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4341C565D2C00B2E783 /* PhonesViewController.swift */; };
+		5798A4381C565D3A00B2E783 /* PhonesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4371C565D3A00B2E783 /* PhonesViewModel.swift */; };
+		5798A4391C565D3A00B2E783 /* PhonesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4371C565D3A00B2E783 /* PhonesViewModel.swift */; };
+		5798A43D1C565E0C00B2E783 /* CuentaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A43C1C565E0C00B2E783 /* CuentaViewController.swift */; };
+		5798A43E1C565E0C00B2E783 /* CuentaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A43C1C565E0C00B2E783 /* CuentaViewController.swift */; };
+		5798A4401C565E1800B2E783 /* CuentaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A43F1C565E1800B2E783 /* CuentaViewModel.swift */; };
+		5798A4411C565E1800B2E783 /* CuentaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A43F1C565E1800B2E783 /* CuentaViewModel.swift */; };
+		5798A4431C565E2600B2E783 /* AseguradoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */; };
+		5798A4441C565E2600B2E783 /* AseguradoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */; };
+		5798A4471C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */; };
+		5798A4481C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */; };
 		57A189CE1C2B3EF90037E9B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */; };
 		57A189D51C2B3EF90037E9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D41C2B3EF90037E9B5 /* Assets.xcassets */; };
 		57A189F71C2B3F9E0037E9B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D91C2B3EF90037E9B5 /* Info.plist */; };
@@ -60,6 +72,12 @@
 		57155EAD1C4E62F9009AC178 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		571D139B1C3B1FA100D54586 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneInfoModel.swift; sourceTree = "<group>"; };
+		5798A4341C565D2C00B2E783 /* PhonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhonesViewController.swift; sourceTree = "<group>"; };
+		5798A4371C565D3A00B2E783 /* PhonesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhonesViewModel.swift; sourceTree = "<group>"; };
+		5798A43C1C565E0C00B2E783 /* CuentaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaViewController.swift; sourceTree = "<group>"; };
+		5798A43F1C565E1800B2E783 /* CuentaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaViewModel.swift; sourceTree = "<group>"; };
+		5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AseguradoraViewController.swift; sourceTree = "<group>"; };
+		5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AseguradoraViewModel.swift; sourceTree = "<group>"; };
 		57A189CA1C2B3EF90037E9B5 /* Lockphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lockphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A189D41C2B3EF90037E9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +148,33 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		5798A4331C565D1300B2E783 /* Phones */ = {
+			isa = PBXGroup;
+			children = (
+				5798A4341C565D2C00B2E783 /* PhonesViewController.swift */,
+				5798A4371C565D3A00B2E783 /* PhonesViewModel.swift */,
+			);
+			name = Phones;
+			sourceTree = "<group>";
+		};
+		5798A43A1C565DE200B2E783 /* Aseguradora */ = {
+			isa = PBXGroup;
+			children = (
+				5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */,
+				5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */,
+			);
+			name = Aseguradora;
+			sourceTree = "<group>";
+		};
+		5798A43B1C565DEC00B2E783 /* Cuenta */ = {
+			isa = PBXGroup;
+			children = (
+				5798A43C1C565E0C00B2E783 /* CuentaViewController.swift */,
+				5798A43F1C565E1800B2E783 /* CuentaViewModel.swift */,
+			);
+			name = Cuenta;
+			sourceTree = "<group>";
+		};
 		57A189C11C2B3EF90037E9B5 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +199,9 @@
 		57A189CC1C2B3EF90037E9B5 /* Lockphone */ = {
 			isa = PBXGroup;
 			children = (
+				5798A43B1C565DEC00B2E783 /* Cuenta */,
+				5798A43A1C565DE200B2E783 /* Aseguradora */,
+				5798A4331C565D1300B2E783 /* Phones */,
 				570A88CD1C4E8542001BAE91 /* Main */,
 				57155EA91C4DCC7C009AC178 /* Payment */,
 				57F0E3A41C47C49200FE789C /* CustomerInfo */,
@@ -444,19 +492,25 @@
 				57A189CE1C2B3EF90037E9B5 /* AppDelegate.swift in Sources */,
 				57A5C4931C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */,
 				57FAEB761C340E0D00799073 /* ParserHelper.swift in Sources */,
+				5798A43D1C565E0C00B2E783 /* CuentaViewController.swift in Sources */,
 				57FAEB731C340E0100799073 /* ParseHelper.swift in Sources */,
+				5798A4351C565D2C00B2E783 /* PhonesViewController.swift in Sources */,
 				5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */,
+				5798A4471C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */,
 				571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */,
+				5798A4431C565E2600B2E783 /* AseguradoraViewController.swift in Sources */,
 				57FE44531C453EF40001AB8A /* Blurable.swift in Sources */,
 				570A88CF1C4E8557001BAE91 /* MainViewController.swift in Sources */,
 				57155EA71C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
 				57FAEB6F1C34039600799073 /* DataService.swift in Sources */,
 				57F0E3A61C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
 				57F0E3AC1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */,
+				5798A4401C565E1800B2E783 /* CuentaViewModel.swift in Sources */,
 				57155EAB1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */,
 				57A5C4961C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */,
 				57F0E3A21C47007B00FE789C /* Reach.swift in Sources */,
 				57F0E3A91C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */,
+				5798A4381C565D3A00B2E783 /* PhonesViewModel.swift in Sources */,
 				570103D51C3181C30017EA0D /* Constants.swift in Sources */,
 				570A88D21C4E8562001BAE91 /* MainViewModel.swift in Sources */,
 			);
@@ -466,7 +520,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5798A4361C565D2C00B2E783 /* PhonesViewController.swift in Sources */,
 				57A5C48E1C2B4668008AB199 /* AppDelegate.swift in Sources */,
+				5798A4441C565E2600B2E783 /* AseguradoraViewController.swift in Sources */,
 				57155EA81C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
 				57F0E3A31C47007C00FE789C /* Reach.swift in Sources */,
 				57A5C4941C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */,
@@ -477,11 +533,15 @@
 				57F0E3A71C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
 				570A88D01C4E8557001BAE91 /* MainViewController.swift in Sources */,
 				570103D61C3182AB0017EA0D /* Constants.swift in Sources */,
+				5798A4411C565E1800B2E783 /* CuentaViewModel.swift in Sources */,
 				57FAEB771C340E0D00799073 /* ParserHelper.swift in Sources */,
 				571D139D1C3B1FA100D54586 /* DeviceModel.swift in Sources */,
 				57FAEB701C34039600799073 /* DataService.swift in Sources */,
+				5798A4391C565D3A00B2E783 /* PhonesViewModel.swift in Sources */,
+				5798A43E1C565E0C00B2E783 /* CuentaViewController.swift in Sources */,
 				57FAEB741C340E0100799073 /* ParseHelper.swift in Sources */,
 				570A88D31C4E8562001BAE91 /* MainViewModel.swift in Sources */,
+				5798A4481C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
