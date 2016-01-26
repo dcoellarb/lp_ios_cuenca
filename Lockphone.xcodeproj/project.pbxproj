@@ -19,6 +19,12 @@
 		57155EAC1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */; };
 		571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
 		571D139D1C3B1FA100D54586 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D139B1C3B1FA100D54586 /* DeviceModel.swift */; };
+		572812D61C57B52F00AB4DD5 /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572812D31C57B52F00AB4DD5 /* PDFViewerViewController.swift */; };
+		572812D71C57B52F00AB4DD5 /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572812D31C57B52F00AB4DD5 /* PDFViewerViewController.swift */; };
+		572812D81C57B52F00AB4DD5 /* PDFViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572812D41C57B52F00AB4DD5 /* PDFViewerViewModel.swift */; };
+		572812D91C57B52F00AB4DD5 /* PDFViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572812D41C57B52F00AB4DD5 /* PDFViewerViewModel.swift */; };
+		572812DA1C57B52F00AB4DD5 /* Online_Agreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 572812D51C57B52F00AB4DD5 /* Online_Agreement.pdf */; };
+		572812DB1C57B52F00AB4DD5 /* Online_Agreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 572812D51C57B52F00AB4DD5 /* Online_Agreement.pdf */; };
 		5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */; };
 		5798A4351C565D2C00B2E783 /* PhonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4341C565D2C00B2E783 /* PhonesViewController.swift */; };
 		5798A4361C565D2C00B2E783 /* PhonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4341C565D2C00B2E783 /* PhonesViewController.swift */; };
@@ -32,12 +38,16 @@
 		5798A4441C565E2600B2E783 /* AseguradoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */; };
 		5798A4471C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */; };
 		5798A4481C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */; };
+		5798A44A1C56924600B2E783 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4491C56924600B2E783 /* Format.swift */; };
+		5798A44B1C56924600B2E783 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798A4491C56924600B2E783 /* Format.swift */; };
+		5798A44C1C56963500B2E783 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE44521C453EF40001AB8A /* Blurable.swift */; };
+		5798A44D1C56964700B2E783 /* PhoneInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */; };
+		5798A44E1C56965200B2E783 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A5C48A1C2B4661008AB199 /* Info.plist */; };
 		57A189CE1C2B3EF90037E9B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */; };
 		57A189D51C2B3EF90037E9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D41C2B3EF90037E9B5 /* Assets.xcassets */; };
 		57A189F71C2B3F9E0037E9B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D91C2B3EF90037E9B5 /* Info.plist */; };
 		57A5C48E1C2B4668008AB199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */; };
 		57A5C48F1C2B466A008AB199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D41C2B3EF90037E9B5 /* Assets.xcassets */; };
-		57A5C4901C2B466D008AB199 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57A189D91C2B3EF90037E9B5 /* Info.plist */; };
 		57A5C4931C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */; };
 		57A5C4941C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4921C2B4794008AB199 /* PhoneInfoViewController.swift */; };
 		57A5C4961C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A5C4951C2B479F008AB199 /* PhoneInfoViewModel.swift */; };
@@ -71,6 +81,9 @@
 		57155EAA1C4DCC91009AC178 /* PaymentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		57155EAD1C4E62F9009AC178 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		571D139B1C3B1FA100D54586 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		572812D31C57B52F00AB4DD5 /* PDFViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewerViewController.swift; sourceTree = "<group>"; };
+		572812D41C57B52F00AB4DD5 /* PDFViewerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewerViewModel.swift; sourceTree = "<group>"; };
+		572812D51C57B52F00AB4DD5 /* Online_Agreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Online_Agreement.pdf; sourceTree = "<group>"; };
 		5768D2C41C334BC000DEA3EB /* PhoneInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneInfoModel.swift; sourceTree = "<group>"; };
 		5798A4341C565D2C00B2E783 /* PhonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhonesViewController.swift; sourceTree = "<group>"; };
 		5798A4371C565D3A00B2E783 /* PhonesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhonesViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +91,7 @@
 		5798A43F1C565E1800B2E783 /* CuentaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaViewModel.swift; sourceTree = "<group>"; };
 		5798A4421C565E2600B2E783 /* AseguradoraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AseguradoraViewController.swift; sourceTree = "<group>"; };
 		5798A4461C565E3A00B2E783 /* AseguradoraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AseguradoraViewModel.swift; sourceTree = "<group>"; };
+		5798A4491C56924600B2E783 /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		57A189CA1C2B3EF90037E9B5 /* Lockphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lockphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A189CD1C2B3EF90037E9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A189D41C2B3EF90037E9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,12 +152,30 @@
 			name = Payment;
 			sourceTree = "<group>";
 		};
+		572812D11C56B5C800AB4DD5 /* Wizard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Wizard;
+			sourceTree = "<group>";
+		};
+		572812D21C57B4F500AB4DD5 /* PDFViewer */ = {
+			isa = PBXGroup;
+			children = (
+				572812D31C57B52F00AB4DD5 /* PDFViewerViewController.swift */,
+				572812D41C57B52F00AB4DD5 /* PDFViewerViewModel.swift */,
+				572812D51C57B52F00AB4DD5 /* Online_Agreement.pdf */,
+			);
+			name = PDFViewer;
+			sourceTree = "<group>";
+		};
 		5768D2C61C334E3500DEA3EB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				57FAEB711C340DE900799073 /* Data */,
 				571D139B1C3B1FA100D54586 /* DeviceModel.swift */,
 				57F0E39F1C46FD5A00FE789C /* Reach.swift */,
+				5798A4491C56924600B2E783 /* Format.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -199,6 +231,7 @@
 		57A189CC1C2B3EF90037E9B5 /* Lockphone */ = {
 			isa = PBXGroup;
 			children = (
+				572812D11C56B5C800AB4DD5 /* Wizard */,
 				5798A43B1C565DEC00B2E783 /* Cuenta */,
 				5798A43A1C565DE200B2E783 /* Aseguradora */,
 				5798A4331C565D1300B2E783 /* Phones */,
@@ -265,6 +298,7 @@
 		57FE44511C453EDE0001AB8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				572812D21C57B4F500AB4DD5 /* PDFViewer */,
 				57FE44521C453EF40001AB8A /* Blurable.swift */,
 			);
 			name = Views;
@@ -376,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A189F71C2B3F9E0037E9B5 /* Info.plist in Resources */,
+				572812DA1C57B52F00AB4DD5 /* Online_Agreement.pdf in Resources */,
 				57A189D51C2B3EF90037E9B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,8 +419,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5798A44E1C56965200B2E783 /* Info.plist in Resources */,
+				572812DB1C57B52F00AB4DD5 /* Online_Agreement.pdf in Resources */,
 				57A5C48F1C2B466A008AB199 /* Assets.xcassets in Resources */,
-				57A5C4901C2B466D008AB199 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,9 +534,12 @@
 				5768D2C51C334BC000DEA3EB /* PhoneInfoModel.swift in Sources */,
 				5798A4471C565E3A00B2E783 /* AseguradoraViewModel.swift in Sources */,
 				571D139C1C3B1FA100D54586 /* DeviceModel.swift in Sources */,
+				572812D61C57B52F00AB4DD5 /* PDFViewerViewController.swift in Sources */,
 				5798A4431C565E2600B2E783 /* AseguradoraViewController.swift in Sources */,
 				57FE44531C453EF40001AB8A /* Blurable.swift in Sources */,
 				570A88CF1C4E8557001BAE91 /* MainViewController.swift in Sources */,
+				572812D81C57B52F00AB4DD5 /* PDFViewerViewModel.swift in Sources */,
+				5798A44A1C56924600B2E783 /* Format.swift in Sources */,
 				57155EA71C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
 				57FAEB6F1C34039600799073 /* DataService.swift in Sources */,
 				57F0E3A61C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
@@ -522,13 +561,18 @@
 			files = (
 				5798A4361C565D2C00B2E783 /* PhonesViewController.swift in Sources */,
 				57A5C48E1C2B4668008AB199 /* AppDelegate.swift in Sources */,
+				5798A44D1C56964700B2E783 /* PhoneInfoModel.swift in Sources */,
 				5798A4441C565E2600B2E783 /* AseguradoraViewController.swift in Sources */,
 				57155EA81C4DCC72009AC178 /* PaymentViewController.swift in Sources */,
+				5798A44B1C56924600B2E783 /* Format.swift in Sources */,
 				57F0E3A31C47007C00FE789C /* Reach.swift in Sources */,
 				57A5C4941C2B4794008AB199 /* PhoneInfoViewController.swift in Sources */,
 				57A5C4971C2B479F008AB199 /* PhoneInfoViewModel.swift in Sources */,
+				572812D71C57B52F00AB4DD5 /* PDFViewerViewController.swift in Sources */,
 				57155EAC1C4DCC91009AC178 /* PaymentViewModel.swift in Sources */,
 				57F0E3AA1C47C4CA00FE789C /* CustomerInfoViewModel.swift in Sources */,
+				5798A44C1C56963500B2E783 /* Blurable.swift in Sources */,
+				572812D91C57B52F00AB4DD5 /* PDFViewerViewModel.swift in Sources */,
 				57F0E3AD1C47C4D800FE789C /* CustomerInfoModel.swift in Sources */,
 				57F0E3A71C47C4B600FE789C /* CustomerInfoViewController.swift in Sources */,
 				570A88D01C4E8557001BAE91 /* MainViewController.swift in Sources */,
@@ -634,6 +678,7 @@
 			baseConfigurationReference = 8D9D9582E2AC49251D6B937F /* Pods-Lockphone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Lockphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -648,6 +693,7 @@
 			baseConfigurationReference = C8546626523F5C9F3B58B52A /* Pods-Lockphone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Lockphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -661,7 +707,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 942F08E1277C8EED79DD948A /* Pods-LockphoneQA.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LockphoneQA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -675,7 +722,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BE13ED19B6D3639200B6D71 /* Pods-LockphoneQA.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LockphoneQA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

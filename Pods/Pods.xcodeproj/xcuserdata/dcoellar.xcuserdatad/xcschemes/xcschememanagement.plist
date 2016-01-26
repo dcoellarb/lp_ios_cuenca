@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>M13PDFKit-M13PDFKitResources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>M13PDFKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,10 +59,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TTOpenInAppActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>335A666E7B1223047A9F42E500772B68</key>
+		<key>0946FECDBE691B9D9D62496A4B5B4CBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AFE982365559FDCCEB3E9FC63D6840C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,27 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5056C707EE63FCBCB465F1E387B9404D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>511B536F0DE06D9C3BD65397A91990C0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>52DA5789311AC2204A4D482C061E73C6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64B3D0BB9F64C0CD5A414FEB26BDECC4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>656C1482A9302E4451105D8C2EE24EF7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6A6D1989A2750651EFB72D8DB59E635E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +97,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C83914C21F84EBD58869D8FCF8D511C2</key>
+		<key>932C2BBB5BD730E61475947CF8BAC7D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7286BF0FCEEB37156B3B17323F8B6EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB2CDBDF183DB8F8F9C20D56B8457FDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC1676BCB39914E891C1CDB83A83CADF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF658A88E8561D9864067744094F7B54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2B0D46D0A441AA7C5D613F7099C712F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -50,19 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if showWizard {
             let rootController = PhoneInfoViewController(viewModel: PhoneInfoViewModel())
             self.navigationController = UINavigationController(rootViewController:rootController)
-            self.navigationController?.navigationBar.barTintColor = Colors.red
-            self.navigationController?.navigationBar.tintColor = Colors.white
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
-            self.navigationController?.navigationBar.hidden = true
         } else {
-            let rootController = MainViewController(viewModel: MainViewModel())
+            let rootController =  MainViewController(viewModel: MainViewModel())
             self.navigationController = UINavigationController(rootViewController:rootController)
-            self.navigationController?.navigationBar.barTintColor = Colors.red
-            self.navigationController?.navigationBar.tintColor = Colors.white
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
-            self.navigationController?.navigationBar.hidden = true
         }
         
+        self.navigationController?.navigationBar.barTintColor = Colors.red
+        self.navigationController?.navigationBar.tintColor = Colors.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.white]
+        self.navigationController?.navigationBar.hidden = true
         self.window?.rootViewController =  navigationController
         
         

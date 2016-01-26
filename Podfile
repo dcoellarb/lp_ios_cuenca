@@ -10,6 +10,7 @@ def import_pods
     pod 'Stripe'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'Alamofire', '~> 3.0'
+    pod 'M13PDFKit', '1.0.2'
 end
 
 target :Lockphone do

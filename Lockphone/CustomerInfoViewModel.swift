@@ -62,6 +62,7 @@ class CustomerInfoViewModel {
         }
     }
     var confirmPassword = ""
+    var acceptedTerms = false
     var loginUsername = ""
     var loginPassword = ""
     
@@ -80,7 +81,7 @@ class CustomerInfoViewModel {
     }
 
     func validateForm() -> Bool{
-        if self.nombre.isEmpty || self.direccion.isEmpty || self.telefono.isEmpty || self.rucCI.isEmpty || self.email.isEmpty || self.password.isEmpty {
+        if self.nombre.isEmpty || self.direccion.isEmpty || self.telefono.isEmpty || self.rucCI.isEmpty || self.email.isEmpty || self.password.isEmpty || acceptedTerms == false {
             return false
         } else {
             return true

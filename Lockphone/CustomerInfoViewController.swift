@@ -100,7 +100,6 @@ class CustomerInfoViewController : UIViewController{
             bottomBorder.frame = CGRectMake(0, CGFloat(height), self.view.frame.size.width, 1)
             bottomBorder.backgroundColor = txtBorderColor.CGColor
             self.loginFrame.layer.addSublayer(bottomBorder)
-        
         }
     }
     var txtLoginEmail : UITextField! {
@@ -182,7 +181,7 @@ class CustomerInfoViewController : UIViewController{
         didSet {
             self.formContainer.delegate = self
             self.formContainer.frame = self.view.bounds
-            self.formContainer.contentSize = CGSizeMake(self.view.frame.size.width,900)
+            self.formContainer.contentSize = CGSizeMake(self.view.frame.size.width,1000)
             self.formContainer.hidden = true
         }
     }
@@ -384,6 +383,33 @@ class CustomerInfoViewController : UIViewController{
             self.txtConfirmPassword.addTarget(self, action: "editChange:", forControlEvents: UIControlEvents.EditingChanged)
         }
     }
+    var btnTerms : UIButton! {
+        didSet {
+            self.btnTerms.frame = CGRectMake(0, 0, CGFloat(33), CGFloat(33))
+            self.btnTerms.backgroundColor = Colors.white
+            self.btnTerms.setTitle("✓", forState: .Normal)
+            self.btnTerms.setTitleColor(Colors.red, forState: .Normal)
+            self.btnTerms.titleLabel?.font = Font.regularFontWithSize(18)
+            self.btnTerms.layer.borderColor = Colors.red.CGColor
+            self.btnTerms.layer.cornerRadius = 3
+            self.btnTerms.layer.borderWidth = 1
+            self.btnTerms.addTarget(self, action: "toogle_terms", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnTerms.userInteractionEnabled = true
+            self.btnTerms.enabled = true
+        }
+    }
+    var btnTermsDescription : UIButton! {
+        didSet {
+            self.btnTermsDescription.frame = CGRectMake(0, 0, CGFloat(300), CGFloat(33))
+            self.btnTermsDescription.setTitle("Acepto los Terminos y Condiciones", forState: .Normal)
+            self.btnTermsDescription.setTitleColor(Colors.darkergray, forState: .Normal)
+            self.btnTermsDescription.titleLabel?.font = Font.regularFontWithSize(14)
+            self.btnTermsDescription.addTarget(self, action: "view_terms", forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnTermsDescription.userInteractionEnabled = true
+            self.btnTermsDescription.enabled = true
+            self.btnTermsDescription.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        }
+    }
     var lblErrorConfirmPassword : UILabel! {
         didSet {
             self.lblErrorConfirmPassword.text = ""
@@ -466,6 +492,11 @@ class CustomerInfoViewController : UIViewController{
         updateCustomerInfoConstraints()
         updateRegisterConstraints()
         updateErrorConstraints()
+    }
+    override func viewWillAppear(animated: Bool) {
+        if self.formContainer.hidden == false {
+            self.txtConfirmPassword.becomeFirstResponder()
+        }
     }
     
     //UITextfield change event
@@ -562,6 +593,32 @@ class CustomerInfoViewController : UIViewController{
     }
     
     //UIButtons actions
+    func toogle_terms(){
+        if self.viewModel.acceptedTerms {
+            self.btnTerms.backgroundColor = Colors.white
+            self.btnTerms.setTitleColor(Colors.red, forState: .Normal)
+            self.viewModel.acceptedTerms = false
+
+            self.btnNext.enabled = false
+            self.btnNext.backgroundColor = Colors.redDisabled
+        } else {
+            self.btnTerms.backgroundColor = Colors.red
+            self.btnTerms.setTitleColor(Colors.white, forState: .Normal)
+            self.viewModel.acceptedTerms = true
+            
+            if self.viewModel.validatePassword() && self.viewModel.validateEmail() && self.viewModel.validateForm(){
+                self.btnNext.enabled = true
+                self.btnNext.backgroundColor = Colors.red
+            } else {
+                self.btnNext.enabled = false
+                self.btnNext.backgroundColor = Colors.redDisabled
+            }
+        }        
+    }
+    func view_terms(){
+        let vc = PDFViewerViewController(viewModel : PDFViewerViewModel(title: "Terminos y Condiciones", filename: "Online_Agreement"))
+        presentViewController(vc, animated: true, completion: nil)
+    }
     func action_signup(sender: AnyObject){
         self.btnNext.enabled = false
         self.btnNext.setTitle("", forState: .Disabled)
@@ -763,6 +820,10 @@ class CustomerInfoViewController : UIViewController{
         self.formContainerContent.addSubview(txtConfirmPassword)
         self.lblErrorConfirmPassword = UILabel()
         self.formContainerContent.addSubview(lblErrorConfirmPassword)
+        self.btnTerms = UIButton()
+        self.formContainerContent.addSubview(btnTerms)
+        self.btnTermsDescription = UIButton()
+        self.formContainerContent.addSubview(btnTermsDescription)
     }
     private func createErrorControls(){
         self.errorFrame = UIView()
@@ -950,6 +1011,18 @@ class CustomerInfoViewController : UIViewController{
             $0.height.equalTo(15)
             $0.width.equalTo(self.formContainerContent.snp_width)
         }
+        self.btnTerms.snp_updateConstraints{
+            $0.top.equalTo(self.txtConfirmPassword.snp_bottom).offset(txtSeparation)
+            $0.leftMargin.equalTo(10)
+            $0.height.equalTo(33)
+            $0.width.equalTo(33)
+        }
+        self.btnTermsDescription.snp_updateConstraints{
+            $0.top.equalTo(self.txtConfirmPassword.snp_bottom).offset(txtSeparation)
+            $0.left.equalTo(self.btnTerms.snp_right).offset(10)
+            $0.height.equalTo(33)
+            $0.width.equalTo(300)
+        }
         self.btnNextSpinner.snp_updateConstraints{
             $0.centerX.equalTo(self.btnNext.snp_centerX)
             $0.centerY.equalTo(self.btnNext.snp_centerY)
@@ -1029,6 +1102,8 @@ extension CustomerInfoViewController: UITextFieldDelegate{
         }else if textField.tag == 14{
             self.txtPassword.becomeFirstResponder()
         }else if textField.tag == 15{
+            self.txtConfirmPassword.becomeFirstResponder()
+        }else if textField.tag == 16{
             self.txtConfirmPassword.becomeFirstResponder()
         }
         return true

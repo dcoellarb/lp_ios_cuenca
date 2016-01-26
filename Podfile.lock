@@ -3,6 +3,8 @@ PODS:
   - Bolts/Tasks (1.5.0)
   - CardIO (5.2.2)
   - GoogleAnalytics (3.14.0)
+  - M13PDFKit (1.0.2):
+    - TTOpenInAppActivity
   - Parse (1.11.0):
     - Bolts/Tasks (~> 1.5)
   - PayPal-iOS-SDK (2.13.0):
@@ -17,10 +19,12 @@ PODS:
     - Stripe/Core (= 6.0.1)
   - Stripe/Core (6.0.1)
   - SwiftyJSON (2.3.2)
+  - TTOpenInAppActivity (1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - GoogleAnalytics
+  - M13PDFKit (= 1.0.2)
   - Parse
   - PayPal-iOS-SDK
   - RxSwift (~> 2.0.0-beta)
@@ -42,11 +46,13 @@ SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   CardIO: 2460db0f4936f3441b08d51e3904b436d77ec8fc
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
+  M13PDFKit: bc121a55ccb8ddfcf3982f1a5a8592b9f492cd73
   Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   PayPal-iOS-SDK: 931720b5e38fcece8f10a007ec46b283a272c1d9
   RxSwift: 191c6b06da783a8671433cf35a54d2ad2fd2d9de
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   Stripe: 04f215191702c268b89fe0cdf28dc24a9688a71b
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TTOpenInAppActivity: c2218fe419d03ddd4ffb1f07d52d66e0d213d0d4
 
 COCOAPODS: 0.39.0

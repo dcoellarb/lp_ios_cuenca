@@ -19,6 +19,12 @@ struct UserDefatulsKeys {
     static let localEmail = "localEmail"
     static let localPassword = "localPassword"
     static let localPhoneInsured = "localPhoneInsured"
+    static let localBrand = "localBrand"
+    static let localModel = "localModel"
+    static let localValorAsegurado = "localValorAsegurado"
+    static let localDeducible = "localDeducible"
+    static let localValorRecibir = "localValorRecibir"
+    static let localCostoMensual = "localCostoMensual"
     
 }
 

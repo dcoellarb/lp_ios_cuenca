@@ -34,22 +34,22 @@ class PhoneInfoViewModel{
     }
     var valorAsegurado: String? {
         get{
-            return self.formatCurrency(self.phoneInfo.valorAsegurado)
+            return Format().formatCurrency(self.phoneInfo.valorAsegurado)
         }
     }
     var deducible: String? {
         get{
-            return self.formatCurrency(self.phoneInfo.deducible)
+            return Format().formatCurrency(self.phoneInfo.deducible)
         }
     }
     var valorRecibir: String? {
         get{
-            return self.formatCurrency(self.phoneInfo.valorRecibir)
+            return Format().formatCurrency(self.phoneInfo.valorRecibir)
         }
     }
     var costoMensual: String? {
         get{
-            return self.formatCurrency(self.phoneInfo.costoMensual)
+            return Format().formatCurrency(self.phoneInfo.costoMensual)
         }
     }
     var deviceImageName = DeviceModel.sharedInstance.imageName
@@ -136,6 +136,12 @@ class PhoneInfoViewModel{
                 if let id = self.phoneInfo.id {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setValue(id, forKey: UserDefatulsKeys.localDeviceId)
+                    defaults.setValue(self.phoneInfo.brand, forKey: UserDefatulsKeys.localBrand)
+                    defaults.setValue(self.phoneInfo.model, forKey: UserDefatulsKeys.localModel)
+                    defaults.setValue(self.phoneInfo.valorAsegurado, forKey: UserDefatulsKeys.localValorAsegurado)
+                    defaults.setValue(self.phoneInfo.deducible, forKey: UserDefatulsKeys.localDeducible)
+                    defaults.setValue(self.phoneInfo.valorRecibir, forKey: UserDefatulsKeys.localValorRecibir)
+                    defaults.setValue(self.phoneInfo.costoMensual, forKey: UserDefatulsKeys.localCostoMensual)
                 }
                 
                 observer.on(.Next(phoneInfo))
@@ -145,12 +151,5 @@ class PhoneInfoViewModel{
             return NopDisposable.instance
             
         }
-    }
-    
-    private func formatCurrency(varlor: Double) -> String? {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        formatter.locale = NSLocale(localeIdentifier: "en_US")
-        return formatter.stringFromNumber(varlor)
     }
 }

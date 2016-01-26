@@ -86,18 +86,22 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-LockphoneQA/Alamofire.framework"
   install_framework "Pods-LockphoneQA/Bolts.framework"
+  install_framework "Pods-LockphoneQA/M13PDFKit.framework"
   install_framework "Pods-LockphoneQA/Parse.framework"
   install_framework "Pods-LockphoneQA/RxSwift.framework"
   install_framework "Pods-LockphoneQA/SnapKit.framework"
   install_framework "Pods-LockphoneQA/Stripe.framework"
   install_framework "Pods-LockphoneQA/SwiftyJSON.framework"
+  install_framework "Pods-LockphoneQA/TTOpenInAppActivity.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-LockphoneQA/Alamofire.framework"
   install_framework "Pods-LockphoneQA/Bolts.framework"
+  install_framework "Pods-LockphoneQA/M13PDFKit.framework"
   install_framework "Pods-LockphoneQA/Parse.framework"
   install_framework "Pods-LockphoneQA/RxSwift.framework"
   install_framework "Pods-LockphoneQA/SnapKit.framework"
   install_framework "Pods-LockphoneQA/Stripe.framework"
   install_framework "Pods-LockphoneQA/SwiftyJSON.framework"
+  install_framework "Pods-LockphoneQA/TTOpenInAppActivity.framework"
 fi
